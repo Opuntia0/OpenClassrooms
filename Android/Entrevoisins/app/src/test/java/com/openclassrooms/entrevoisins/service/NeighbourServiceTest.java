@@ -9,6 +9,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertFalse;
@@ -39,5 +40,32 @@ public class NeighbourServiceTest {
         Neighbour neighbourToDelete = service.getNeighbours().get(0);
         service.deleteNeighbour(neighbourToDelete);
         assertFalse(service.getNeighbours().contains(neighbourToDelete));
+    }
+
+    @Test
+    public void getAndSetFavouritesWithSuccess() {
+
+        // We construct a list with the neighbours we will set as favorites
+        List<Neighbour> expectedFavourites = new ArrayList<>();
+        expectedFavourites.add(service.getNeighbours().get(4));
+        expectedFavourites.add(service.getNeighbours().get(2));
+
+        // We set as favorite neighbour 2 and 4
+        service.getNeighbours().get(2).setFavorite(true);
+        service.getNeighbours().get(4).setFavorite(true);
+
+        // We create a new list, that's where we test the getter
+        List<Neighbour> favourites = service.getFavoriteNeighbours();
+
+        assertThat(favourites, IsIterableContainingInAnyOrder.containsInAnyOrder(expectedFavourites.toArray()));
+    }
+
+    @Test
+    public void setFavouritesWithSucces() {
+        Neighbour neighbourAsFavourite = service.getNeighbours().get(0);
+        assertFalse(service.getFavoriteNeighbours().contains(neighbourAsFavourite));
+        neighbourAsFavourite.setFavorite(true);
+        assertFalse(!(service.getFavoriteNeighbours().contains(neighbourAsFavourite)));
+
     }
 }

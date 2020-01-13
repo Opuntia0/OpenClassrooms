@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:background="#eeeeee"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/ic_avatar"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintDimensionRatio="H,3:2"
+        android:background="#C3C3C3"
+        tools:src="@tools:sample/avatars"
+        />
+
+    <ImageView
+        android:id="@+id/back_button"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:tint="#FFFFFF"
+        android:padding="12dp"
+        android:layout_margin="4dp"
+        app:srcCompat="@drawable/ic_arrow_back_white_24dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_fav"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/ic_star_border_yellow_24dp"
+        app:layout_constraintTop_toBottomOf="@+id/ic_avatar"
+        app:layout_constraintBottom_toBottomOf="@id/ic_avatar"
+        app:layout_constraintEnd_toEndOf="@id/ic_avatar" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_marginBottom="16dp"
+        android:height="35dp"
+        android:textColor="#FFFF"
+        tools:text="Nom"
+        android:scaleType="centerCrop"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="@id/ic_avatar"
+        app:layout_constraintStart_toStartOf="@id/ic_avatar"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <android.support.v7.widget.CardView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/info_cv"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ic_avatar"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="#FFFF"
+        >
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="16dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:paddingBottom="8dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/name_cv"
+                android:textSize="22sp"
+                android:textColor="#111111"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="Caroline"
+                />
+
+            <ImageView
+                android:id="@+id/info_localisation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_location_on_black_24dp"
+                android:padding="10dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintStart_toStartOf="@+id/name_cv"
+                app:layout_constraintTop_toBottomOf="@id/name_cv"
+                />
+            <TextView
+                android:id="@+id/localisation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Localisation"
+                android:padding="12dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@id/name_cv"
+                app:layout_constraintStart_toEndOf="@id/info_localisation"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/info_tel"
+                android:padding="10dp"
+                android:src="@drawable/ic_phone_pink_24dp"
+                app:layout_constraintStart_toStartOf="@+id/name_cv"
+                app:layout_constraintTop_toBottomOf="@id/info_localisation"
+                />
+            <TextView
+                android:id="@+id/tel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Numéro de telephone"
+                android:padding="13dp"
+                app:layout_constraintTop_toBottomOf="@id/localisation"
+                app:layout_constraintStart_toEndOf="@id/info_tel"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/info_fb"
+                android:padding="10dp"
+                android:src="@drawable/ic_language_pink_24dp"
+                app:layout_constraintStart_toStartOf="@+id/name_cv"
+                app:layout_constraintTop_toBottomOf="@id/info_tel"
+                />
+            <TextView
+                android:id="@+id/fb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Facebook"
+                android:padding="12dp"
+                app:layout_constraintTop_toBottomOf="@id/tel"
+                app:layout_constraintStart_toEndOf="@id/info_fb"/>
+
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/info_cv"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="#FFFF" >
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="16dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:paddingBottom="8dp"
+            >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/a_propos_title"
+            android:textSize="22sp"
+            android:textColor="#111111"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="À propos de moi"
+            />
+        <TextView
+            android:id="@+id/a_propos_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:padding="5dp"
+            app:layout_constraintStart_toStartOf="@id/a_propos_title"
+            app:layout_constraintTop_toBottomOf="@id/a_propos_title"
+            android:text="Bonjour ! Je souhaiterais faire de la marche \n nordique. Pas initiée, je recherche une ou plusieurs personnes pour m'accompagner. Jai'me les jeux de carte tels que la belote et le tarot."
+            />
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v7.widget.CardView>
+</android.support.constraint.ConstraintLayout>
+

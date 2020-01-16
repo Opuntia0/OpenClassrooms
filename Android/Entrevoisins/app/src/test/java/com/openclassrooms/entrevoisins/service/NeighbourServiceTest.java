@@ -36,19 +36,12 @@ public class NeighbourServiceTest {
     }
 
     @Test
-    public void deleteNeighbourWithSuccess() {
-        Neighbour neighbourToDelete = service.getNeighbours().get(0);
-        service.deleteNeighbour(neighbourToDelete);
-        assertFalse(service.getNeighbours().contains(neighbourToDelete));
-    }
-
-    @Test
     public void getAndSetFavouritesWithSuccess() {
 
         // We construct a list with the neighbours we will set as favorites
         List<Neighbour> expectedFavourites = new ArrayList<>();
-        expectedFavourites.add(service.getNeighbours().get(4));
         expectedFavourites.add(service.getNeighbours().get(2));
+        expectedFavourites.add(service.getNeighbours().get(4));
 
         // We set as favorite neighbour 2 and 4
         service.getNeighbours().get(2).setFavorite(true);
@@ -61,11 +54,10 @@ public class NeighbourServiceTest {
     }
 
     @Test
-    public void setFavouritesWithSucces() {
-        Neighbour neighbourAsFavourite = service.getNeighbours().get(0);
-        assertFalse(service.getFavoriteNeighbours().contains(neighbourAsFavourite));
-        neighbourAsFavourite.setFavorite(true);
-        assertFalse(!(service.getFavoriteNeighbours().contains(neighbourAsFavourite)));
-
+    public void deleteNeighbourWithSuccess() {
+        Neighbour neighbourToDelete = service.getNeighbours().get(0);
+        service.deleteNeighbour(neighbourToDelete);
+        assertFalse(service.getNeighbours().contains(neighbourToDelete));
     }
+
 }

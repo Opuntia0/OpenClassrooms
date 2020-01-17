@@ -115,58 +115,24 @@ public class NeighboursListTest {
      * favoris.
      */
 
-
     @Test
     public void myNeighboursList_favouriteView_shouldShowOnlyFavouriteNeighbours() {
         onView(withId(R.id.container)).perform(swipeRight());
         onView(allOf(ViewMatchers.withId(R.id.list_neighbours), isDisplayingAtLeast(10))).check(withItemCount(12));
 
-
-        synchronized (this) {
-            // Jack devient favoris
-            onView(allOf(ViewMatchers.withId(R.id.list_neighbours), isDisplayed()))
-                    .perform(RecyclerViewActions.actionOnItemAtPosition(1, new ItemListClicViewAction()));
-            onView(withId(R.id.fab_fav)).perform(click());
-            onView(withId(R.id.back_button)).perform(click());
-        }
-        synchronized (this) {
-            // Elodie devient favoris
-            onView(allOf(ViewMatchers.withId(R.id.list_neighbours), isDisplayed()))
-                    .perform(RecyclerViewActions.actionOnItemAtPosition(3, new ItemListClicViewAction()));
-            onView(withId(R.id.fab_fav)).perform(click());
-            onView(withId(R.id.back_button)).perform(click());
-        }
-
-        synchronized (this) {
-            // Vincent devinet favoris
-            onView(allOf(ViewMatchers.withId(R.id.list_neighbours), isDisplayed()))
-                    .perform(RecyclerViewActions.actionOnItemAtPosition(4, new ItemListClicViewAction()));
-            onView(withId(R.id.fab_fav)).perform(click());
-            onView(withId(R.id.back_button)).perform(click());
-        }
+        onView(allOf(ViewMatchers.withId(R.id.list_neighbours), isDisplayed()))
+                .perform(RecyclerViewActions.actionOnItemAtPosition(1, new ItemListClicViewAction()));
+        onView(withId(R.id.fab_fav)).perform(click());
+        onView(withId(R.id.back_button)).perform(click());
 
 
         onView(withId(R.id.container)).perform(swipeLeft());
-        onView(allOf(ViewMatchers.withId(R.id.list_neighbours), isDisplayingAtLeast(10))).check(withItemCount(3));
+        onView(allOf(ViewMatchers.withId(R.id.list_neighbours), isDisplayingAtLeast(10))).check(withItemCount(1));
 
         // Jack dans l'onglet favoris
-        /*onView(allOf(ViewMatchers.withId(R.id.list_neighbours), isDisplayed()))
+        onView(allOf(ViewMatchers.withId(R.id.list_neighbours), isDisplayingAtLeast(10)))
                 .perform(RecyclerViewActions.actionOnItemAtPosition(0, new ItemListClicViewAction()));
         onView(ViewMatchers.withId(R.id.name)).check(matches(withText("Jack")));
         onView(withId(R.id.back_button)).perform(click());
-
-        // Vincent dans l'onglet favoris
-        onView(allOf(ViewMatchers.withId(R.id.list_neighbours), isDisplayed()))
-                .perform(RecyclerViewActions.actionOnItemAtPosition(1, new ItemListClicViewAction()));
-        onView(ViewMatchers.withId(R.id.name)).check(matches(withText("Vincent")));
-        onView(withId(R.id.back_button)).perform(click());
-
-        // Elodie dans l'onglet favoris
-        onView(allOf(ViewMatchers.withId(R.id.list_neighbours), isDisplayed()))
-                .perform(RecyclerViewActions.actionOnItemAtPosition(2, new ItemListClicViewAction()));
-        onView(ViewMatchers.withId(R.id.name)).check(matches(withText("Elodie")));
-        onView(withId(R.id.back_button)).perform(click());*/
-
-        //onView(ViewMatchers.withId(R.id.list_favorite)).check(withItemCount(ITEMS_FAV));
     }
 }
